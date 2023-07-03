@@ -1,0 +1,18 @@
+create database University;
+create table Students(
+    st_id int primary key,
+    st_name varchar(50),
+    st_age int,
+    st_major varchar(50));
+insert into Students values
+(1,"AAA",20,"bio"),
+(2,"BBB",21,"maths bio"),
+(3,"CCC",22,"cs"),
+(4,"DDD",23,"arts"),
+(5,"EEE",24,"engg");
+select * from Students;
+select * from Students where st_major="arts";
+select * from Students where st_age<=23;
+delete  from Students where st_id=3;
+
+
