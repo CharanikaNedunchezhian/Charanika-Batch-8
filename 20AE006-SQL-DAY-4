@@ -1,0 +1,49 @@
+create database TechlandDB1;
+create table trade1(
+cu_id int primary key auto_increment,
+goods varchar(50),
+price int,
+merchant varchar(30));
+create table custom1(
+series_no int primary key auto_increment,
+cu_name varchar(30),
+product varchar(40),
+constraint trade1 foreign key(series_no) references custom1(cu_id));
+select *from trade1;
+select *from custom1;
+insert into trade1 values 
+  (1,"aaa",100,"thanni"),
+  (2,"bbb",200,"kanni"),
+  (3,"ccc",250,"manni"),
+  (4,"ddd",500,"panni");
+insert into custom1 values
+  (5,"balu","laptop"),
+  (6,"malu","computer"),
+  (7,"shalu","projector"),
+  (8,"pullu","phone");
+select trade1.cu_id,trade1.goods,trade1.price,trade1.merchant,custom1.series_no
+from trade1 
+right join custom1
+on trade1.series_no=custom1.series_no order by cu_id;
+select trade1.cu_id,trade1.goods,trade1.price,trade1.merchant,custom1.series_no
+from trade1 
+left join custom1
+on trade1.series_no=custom1.series_no order by cu_id;
+select trade1.cu_id,trade1.goods,trade1.price,trade1.merchant,custom1.series_no
+from trade1 
+inner join custom1
+on trade1.series_no=custom1.series_no order by cu_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
